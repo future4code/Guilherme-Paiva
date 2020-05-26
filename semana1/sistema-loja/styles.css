@@ -1,0 +1,60 @@
+* {
+    font-family: Helvetica;
+}
+
+.cabecalho {
+    background-color: lightcoral;
+    padding: 10px 0px 10px 50px;
+}
+
+.rodape {
+    background-color: lightsteelblue;
+    padding: 25px 0px 5px 50px;
+}
+
+.torre {
+    margin: 30px 0px 40px 50px;
+}
+
+ul {
+    margin: 30px 0px 30px 20px;
+}
+
+#formu {
+    margin: 30px 0px 30px 50px;
+}
+
+table {
+    margin: 30px 0px 30px 50px;
+}
+
+img {
+    max-width: 120px;
+    max-height: 150px;
+}
+
+.logopk {
+    margin: 20px 20px 0px 30px;
+    float: left;
+}
+
+td {
+    text-align: center;
+}
+
+.team {
+    display: block;
+    margin: 10px 0px 15px 18px;
+}
+
+label {
+    font-weight: bold;
+}
+
+a {
+    font-weight: bold;
+}
+
+.formvendas {
+    margin: 30px 0px 40px 50px;
+}
