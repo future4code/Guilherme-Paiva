@@ -66,3 +66,7 @@ a {
 .datahist {
     margin: 30px 0px 40px 50px;
 }
+
+button {
+    background-color: limegreen;
+}
