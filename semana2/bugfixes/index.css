@@ -7,6 +7,8 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: "Roboto";
+    outline: none;
 }
 
 h2 {
@@ -19,22 +21,19 @@ h2 {
 input {
     height: 20px;
     width: 500px;
-}
-
-button:focus {
-    color: white;
+    border-bottom: solid 2px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 img {
-    width: 100px;
+    width: 50px;
+    height: 50px;
 }
 
 div>p:first-child {
-    display: inline;
-}
-
-div img {
-    background: black;
+    display: inline-block;
 }
 
 .botao-amarelo {
@@ -44,6 +43,7 @@ div img {
     border-radius: 5px;
     font-size: 20px;
     color: white;
+    border: none;
 }
 
 .botao-amarelo:hover {
@@ -57,6 +57,15 @@ div img {
 
 .icone {
     height: 15px;
+    width: 15px;
+}
+
+.icone:hover {
+    opacity: 50%;
+}
+
+.icone:active {
+    opacity: 100%;
 }
 
 
@@ -71,8 +80,13 @@ div img {
     color: white;
 }
 
+#container-de-descricao>p {
+    margin-top: 100px;
+    max-width: 210px;
+}
+
 #container-de-descricao>ol {
-    padding: 15px 0px;
+    padding: 15px 820px;
 }
 
 #container-para-comprar {
@@ -97,8 +111,13 @@ div:last-child {
     text-align: center;
 }
 
+div>table {
+    margin: 0 auto;
+}
+
 table {
     width: 60%;
+    font-weight: bold;
 }
 
 td button {
@@ -107,6 +126,17 @@ td button {
     height: 30px;
     border-radius: 5px;
     color: black;
+    border: none;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+td button:hover {
+    background-color: #b19d48;
+}
+
+td button:active {
+    color: white;
 }
 
 .container-do-search {
@@ -114,17 +144,25 @@ td button {
     height: 100px;
 }
 
-
 #back-button {
     background-color: white;
-    width: 100px;
-    height: 20px;
     border: 1px solid black;
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    padding: 3px 30px;
+    text-decoration: none;
+}
+
+div>a:first-child {
+    display: inline-block;
+    margin: 150px 850px;
 }
 
 #back-button:hover {
     background-color: #635a3d
+}
+
+tr {
+    text-align: center;
 }
