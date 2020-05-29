@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* .global {
+    display: flex;
+} */
+/* 
+.containerEsq {
+    background-color: grey;
+    width: 200px;
+    height: 1200px;
+}
+
+.list1 {
+    margin: 0 0 20px 0px;
+}
+
+.list1>ul {
+    margin: 0 0 20px 20px;
+}
+
+.list1>li {
+    padding: 0 0 0 5px;
+}
+
+.list2>ul {
+    margin: 0 0 20px 20px;
+}
+
+.list2>li {
+    padding: 0 0 0 5px;
+} */
+
+
+
+#redbar {
+    background-color: red;
+    color: red;
+    height: 90px;
+    width: 1000px;
+}
+
+.linha1, .linha2, .linha3, .linha4 {
+    display: flex;
+    justify-content: start;
+    margin: 5px 10px 10px 10px;
+}
+
+.linha1>div {
+    border: 0.5px solid black;
+    height: 130px;
+    width: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 8px;
+}
+
+.linha1>div:first-child {
+    background-color: blue;
+}
+
+.linha1>div:nth-child(2) {
+    background-color: yellow;
+}
+
+.linha1>div:last-child {
+    background-color: green;
+}
+
+.linha2>div {
+    border: 0.5px solid black;
+    height: 130px;
+    width: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 8px;
+}
+
+.linha2>div:first-child {
+    background-color: blue;
+}
+
+.linha2>div:nth-child(2) {
+    background-color: yellow;
+}
+
+.linha2>div:last-child {
+    background-color: green;
+}
+
+.linha3>div {
+    border: 0.5px solid black;
+    height: 420px;
+    width: 475px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 8px;
+}
+
+.linha4>div {
+    border: 0.5px solid black;
+    height: 130px;
+    width: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 8px;
+}
+
+@media screen and (max-width: 900px){
+
+}
+;
+}
