@@ -117,10 +117,23 @@ footer {
     position: fixed;
     color: white;
     font-size: 120%;
-    display: inline-block;
 }
 
 h2 {
     padding-left: 30px;
     padding-top: 22px;
 }
+
+@media screen and (min-device-width: 320px) and (max-device-width: 420px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        justify-items: center;
+    }
+
+    video {
+        width: 80vw;
+    }
+}
+
+
