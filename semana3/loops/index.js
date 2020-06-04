@@ -49,11 +49,24 @@ c. Todos os múltiplos de 3 e 4, respectivamente: [12, 15, 18, 21, 27, 30] e [12
 // console.log(novoArray)
 
 //d. 
-const array = [20, 30, 40, 55, 60, 99, 6]
-let novoArray = []
-let num = 0
-for (let valor of array){
-    num += 1
-        novoArray.push("O elemento do índex " + num + " é " + valor)
+// const array = [20, 30, 40, 55, 60, 99, 6]
+// let novoArray = []
+// let num = 0
+// for (let valor of array){
+//     num += 1
+//         novoArray.push("O elemento do índex " + num + " é " + valor)
+// }
+// console.log(novoArray)
+
+
+// DESAFIO 1
+const quantidadeTotal = Number(prompt("Digite a quantidade de linhas: "))
+let quantidadeAtual = 0
+while(quantidadeAtual < quantidadeTotal){
+  let linha = ""
+  for(let asteriscos = 0; asteriscos < quantidadeAtual + 1; asteriscos++){
+    linha += "0"
+  }
+  console.log(linha)
+  quantidadeAtual++
 }
-console.log(novoArray)
