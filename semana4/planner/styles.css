@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+}
+
+header {
+    background-color: #EBAAA7;
+    height: 14vh;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+header>h1 {
+    padding: 15px 0 0px 30px;
+    display: inline-block;
+    font-size: 90px;
+}
+
+#boxes {
+    grid-column-start: 2;
+    justify-self: left;
+    margin-top: 60px;
+}
+
+input {
+    color: grey;
+    border: none;
+    width: 300px;
+    height: 30px;
+    padding-left: 10px;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#diaSemana {
+    height: 30px;
+    border: none;
+    padding: 5px;
+}
+
+#diaSemana:focus, #diaSemana:hover {
+    background-color: rgb(197, 197, 197);
+    outline: none;
+    box-shadow: none;
+}
+
+#diaSemana:active {
+    background-color: rgb(153, 153, 153);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropItens {
+    display: none;
+    position: absolute;
+}
+
+.dropItens > a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    background-color: #A7B6E8;
+    width: 110px;
+    padding: 10px;
+}
+
+.dropItens>a:hover {
+    background-color: rgb(142, 154, 194);
+}
+
+.dropItens>a:active {
+background-color: rgb(153, 153, 153);
+}
+
+.show {
+    display:block;
+}
+
+#confirmar {
+    height: 30px;
+    border: none;
+    padding: 5px;
+}
+
+#confirmar:active, #confirmar:focus, #confirmar:hover {
+    background-color: rgb(197, 197, 197);
+    outline: none;
+    box-shadow: none;
+}
+
+main {
+    background-color: #FFE4C4;
+    height: 80vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+main>div {
+    width: 12vw;
+    border-left: 1px black solid;
+    border-right: 1px black solid;
+    padding: 5px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+div>p{
+    border-bottom: 1px rgba(0, 0, 0, 0.514) solid;
+    text-align: start;
+    font-weight: bold;
+}
+
+li {
+    margin: 25px 10px 10px 10px;
+    font-size: 15px;
+    list-style: none;
+    text-align: start;
+}
+
+
+
+footer {
+    background-color: #A7B6E8;
+    width: 100vw;
+    height: 6vh;
+    position: absolute;
+    bottom: 0;
+}
+
+footer>h2 {
+    font-size: 18px;
+    margin: 20px 0 10px 21px;
+}

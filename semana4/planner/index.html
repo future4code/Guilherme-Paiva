@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="javascript.js" defer></script>
+    <title>Planner semanal</title>
+</head>
+<body>
+    <header>
+        <h1>Planner semanal</h1>
+            <div id="boxes">
+                <input type="text" id="tarefas" value="Digite sua tarefa aqui" onfocus="this.value=''">
+                <div class="dropdown">
+                    <button id="diaSemana" onclick="funcDiaSemana()">Dia da semana</button>
+                    <div id="drop" class="dropItens">
+                        <a id="segunda-f" onclick="reescrever1()">Segunda-feira</a>
+                        <a id="terca-f" onclick="reescrever2()">Terça-feira</a>
+                        <a id="quarta-f" onclick="reescrever3()">Quarta-feira</a>
+                        <a id="quinta-f" onclick="reescrever4()">Quinta-feira</a>
+                        <a id="sexta-f" onclick="reescrever5()">Sexta-feira</a>
+                        <a id="sabado-f" onclick="reescrever6()">Sábado</a>
+                        <a id="domingo-f" onclick="reescrever7()">Domingo</a>
+                    </div>          
+                </div>
+                <button id="confirmar" onclick="planejar()">Confirmar</button>
+            </div>
+    </header>
+    <main>
+        <div>
+            <p>Segunda-feira</p>
+            <ul id="tarefaSegunda" onclick="riscaTarefa()">
+                           
+            </ul>
+        </div>
+        <div>
+            <p>Terça-feira</p>
+            <ul id="tarefaTerca">
+                
+            </ul>
+        </div>
+        <div>
+            <p>Quarta-feira</p>
+            <ul id="tarefaQuarta">
+            
+            </ul>
+        </div>
+        <div>
+            <p>Quinta-feira</p>
+            <ul id="tarefaQuinta">
+                
+            </ul>
+        </div>
+        <div>
+            <p>Sexta-feira</p>
+            <ul id="tarefaSexta">
+                
+            </ul>
+        </div>
+        <div>
+            <p>Sábado</p>
+            <ul id="tarefaSabado">
+                
+            </ul>
+        </div>
+        <div>
+            <p>Domingo</p>
+            <ul id="tarefaDomingo">
+                
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <h2>2020© Todos os direitos reservados.</h2>
+    </footer>
+</body>
+</html>
