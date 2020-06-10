@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS';
+}
+
+header {
+    text-align: center;
+    font-size: 70px;
+    background-color: lightsteelblue;
+    height: 100px;
+    padding-top: 10px;
+}
+
+#novoPost {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 40vw;
+    height: 52vh;
+    margin: 50px 0 0 620px;
+}
+
+#inputTitulo {
+    width: 250px;
+    height: 20px;
+}
+
+#inputAutor {
+    width: 190px;
+    height: 20px;
+}
+
+#inputCategoria {
+    width: 197px;
+    height: 20px;
+}
+
+#inputImagem {
+    width: 197px;
+    height: 20px;
+    color: gray;
+}
+
+label {
+    font-size: 13.2px;
+}
+
+#botaoPostar {
+    width: 190px;
+    height: 35px;
+    margin-top: 10px;
+    margin-left: 100px;
+    border-radius: 13px;
+    border-style: none;
+    background-color: lightsteelblue;
+    color: rgb(10, 10, 66);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#global {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main>div {
+    margin: 70px 0 0 30px;
+    width: 1400px;
+}
+
+img {
+    width: 200px;
+}
+
+#postsBlog>i, #postsBlog>h3{
+    display: inline;
+    color: rgb(86, 125, 177);
+}
+
