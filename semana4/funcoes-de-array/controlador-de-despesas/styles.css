@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Cambria;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+body>div {
+    margin: 10px;
+}
+
+div>h1 {
+    padding-top: 30px;
+    margin-bottom: 20px;
+}
+
+#controladorDespesas {
+    border: 3px solid lightseagreen;
+    width: 450px;
+    height: 400px;
+    padding-left: 30px;
+}
+
+#controladorDespesas>h1 {
+    margin-bottom: 50px;
+}
+
+#controladorDespesas>h2 {
+    margin-bottom: 30px;
+}
+
+#controladorDespesas>div {
+    margin-bottom: 20px;
+}
+
+#despesasDetalhadas {
+    border: 3px solid lightsalmon;
+    width: 450px;
+    height: 900px;
+    padding-left: 30px;
+}
+
+#despesasDetalhadas>h1 {
+    margin-bottom: 50px;
+}
+
+#despesasDetalhadas>div {
+    margin-bottom: 25px;
+}
+
+#extrato {
+    border: 3px solid steelblue;
+    width: 450px;
+    height: 200px;
+    padding-left: 30px;
+}
+
+#extrato>h1 {
+    margin-bottom: 50px;
+}
+
+#seletorDespesa {
+    display: inline;
+}
+
+button {
+    padding: 5px;
+}
