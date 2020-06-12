@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+    <title>Novo post</title>
+</head>
+<body>
+    <header>
+        <a>Meu Blog</a>
+    </header>
+    <div id="novoPost">
+        <h2>Nova postagem</h2>
+        <input type="text" id="inputTitulo" value="Título" onfocus="this.value=''">
+        <textarea id="conteudo" cols="50" rows="20" onfocus="this.value=''">Digite aqui o conteúdo</textarea>
+        <div>
+        <input type="text" id="inputAutor" value="Autor" onfocus="this.value=''">
+        <input type="text" id="inputCategoria" value="Categoria" onfocus="this.value=''">
+        </div>
+        <div>
+        <label for="">Adicione uma imagem (opcional)</label>
+        <input id="inputImagem" type="text" value="Link para imagem" onfocus="this.value=''"> 
+        <button id="botaoPostar" onclick="postar()">Postar</button>
+        </div>
+    </div>
+</body>
+</html>
