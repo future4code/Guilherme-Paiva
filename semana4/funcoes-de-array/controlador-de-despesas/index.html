@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="controladorDespesas">
+        <h1>Controlador de despesas</h1>
+        <h2>Cadastrar despesa</h2>
+    <div>  
+        <label for="">Valor (R$)</label>
+        <input id="inputValor" type="text">
+    </div>
+    <div>
+        <label for="">Tipo (Casa, Alimentação, Viagem, Outros)</label>
+        <select id="inputTipoDespesa">
+            <option value="0">Casa</option>
+            <option value="1">Alimentação</option>
+            <option value="2">Viagem</option>
+            <option value="3">Outros</option>
+        </select>
+    </div>
+    <div>
+        <label for="">Descrição</label>
+        <input id="inputDescricao" type="text">
+    </div>
+        <button onclick="cadastrar()">Cadastrar despesa</button>
+    </div>
+
+    <div id="despesasDetalhadas">
+        <h1>Despesas detalhadas</h1>
+        <div>
+            <label for="">Tipo (Casa, Alimentação, Viagem, Outros)</label>
+            <select>
+                <option value="0">Casa</option>
+                <option value="1">Alimentação</option>
+                <option value="2">Viagem</option>
+                <option value="3">Outros</option>
+            </select>
+        </div>
+        <div>
+            <label for="">Valor mínimo (R$)</label>
+            <input type="text">
+        </div>
+        <div>
+            <label for="">Valor máximo (R$)</label>
+            <input type="text">
+        </div>
+        <button onclick="filtrar()">Filtrar</button>
+        <button>Limpar Filtros</button>
+        
+    <div id="listaDespesas">
+        <h1>Lista de despesas</h1>
+        <button id="exibirLista" onclick="exibirListaDespesas()">Exibir lista de despesas</button>
+        <div id="todasDespesas">
+
+        </div>
+    </div> 
+    </div>
+    
+    <div id="extrato">
+        <h1>Extrato</h1>
+        <h2>Valor total:</h2>
+    </div>
+
+</body>
+</html>
