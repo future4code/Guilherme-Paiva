@@ -3,11 +3,11 @@ import './SecaoComentario.css'
 
 export class SecaoComentario extends Component {
 	state = {
-
+		textoComentario: '',
 	}
 
-	onChangeComentario() {
-
+	onChangeComentario = (event) => {
+		this.setState({textoComentario: event.target.value})
 	}
 
 	render() {
@@ -15,7 +15,7 @@ export class SecaoComentario extends Component {
 			<input
 				className={'input-comentario'}
 				placeholder={'Comentário'}
-				value={''}
+				value={console.log(this.state.textoComentario)}
 				onChange={this.onChangeComentario}
 			/>
 			<button onClick={this.props.aoEnviar}>Enviar</button>

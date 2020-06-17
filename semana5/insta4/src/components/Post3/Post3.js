@@ -1,5 +1,5 @@
 import React from 'react'
-import './Post.css'
+import '/home/gui/Documents/Labenu/Guilherme-Paiva/semana5/insta4/src/components/Post/Post.css'
 
 import {IconeComContador} from '../IconeComContador/IconeComContador'
 
@@ -8,33 +8,35 @@ import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
 
-class Post extends React.Component {
+class Post3 extends React.Component {
   state = {
     curtido: false,
     numeroCurtidas: 0,
     comentando: false,
-    numeroComentarios: 0
+    numeroComentarios: 0,
+    comentario: ''
   }
 
   onClickCurtida = () => {
-      if (!this.state.curtido) {
-        console.log('Curtiu!')  
-        this.setState({
-        curtido: !this.state.curtido,
-        numeroCurtidas: this.state.numeroCurtidas + 1
-      })
-    }else{
-        console.log('Descurtiu =(')  
-        this.setState({
-        curtido: !this.state.curtido,
-        numeroCurtidas: this.state.numeroCurtidas - 1
+    if (!this.state.curtido) {
+      console.log('Curtiu!')  
+      this.setState({
+      curtido: !this.state.curtido,
+      numeroCurtidas: this.state.numeroCurtidas + 1
     })
-  }
-  }
+  }else{
+      console.log('Descurtiu =(')  
+      this.setState({
+      curtido: !this.state.curtido,
+      numeroCurtidas: this.state.numeroCurtidas - 1
+  })
+}
+}
 
   onClickComentario = () => {
     this.setState({
       comentando: !this.state.comentando
+      
     })
   }
 
@@ -57,8 +59,7 @@ class Post extends React.Component {
     let componenteComentario
 
     if(this.state.comentando) {
-      componenteComentario = <SecaoComentario 
-      aoEnviar={this.aoEnviarComentario}/>
+      componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
     }
 
     return <div className={'post-container'}>
@@ -89,4 +90,4 @@ class Post extends React.Component {
   }
 }
 
-export default Post
+export default Post3
