@@ -1,0 +1,20 @@
+.page-header {
+    display: flex;
+    flex-wrap: wrap;
+    background: #283E4A;
+    width: 100vw;
+    height: 50px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.page-header>h1 {
+    margin-left: 578px;
+    color: white;
+    margin-right: 3px;
+}
+
+.page-header>img {
+    width: 25px;
+    height: 25px;
+}
