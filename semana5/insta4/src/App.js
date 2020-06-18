@@ -1,29 +1,49 @@
 import React from 'react';
-import './App.css';
 import Post from './components/Post/Post';
-import Post2 from './components/Post2/Post2'
-import Post3 from './components/Post3/Post3'
+import styled from 'styled-components'
+
+const AppContainer = styled.div`
+display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`
 
 class App extends React.Component {
+  state = {
+    Posts: [
+          {
+          nomeUsuario: "soter",
+          fotoUsuario: "https://picsum.photos/50/49",
+          fotoPost: "https://picsum.photos/200/151"
+        },
+        {
+          nomeUsuario: "severo",
+          fotoUsuario: "https://picsum.photos/50/50",
+          fotoPost: "https://picsum.photos/200/150"
+        },
+        {
+          nomeUsuario: "darvas",
+          fotoUsuario: "https://picsum.photos/50/51",
+          fotoPost: "https://picsum.photos/200/149"
+        }
+    ]
+  }
+
   render() {
-    return (
-      <div className={'app-container'}>
+    const listaDePosts = this.state.Posts.map(post => {
+      return (
         <Post
-          nomeUsuario={'soter'}
-          fotoUsuario={'https://picsum.photos/50/49'}
-          fotoPost={'https://picsum.photos/200/151'}
+          nomeUsuario={post.nomeUsuario}
+          fotoUsuario={post.fotoUsuario}
+          fotoPost={post.fotoPost}
         />
-        <Post2
-          nomeUsuario={'severo'}
-          fotoUsuario={'https://picsum.photos/50/50'}
-          fotoPost={'https://picsum.photos/200/150'}
-        />
-        <Post3
-          nomeUsuario={'darvas'}
-          fotoUsuario={'https://picsum.photos/50/51'}
-          fotoPost={'https://picsum.photos/200/149'}
-        />
-      </div>
+      );
+    });
+    return (
+      <AppContainer>
+         <div>{listaDePosts}</div>
+      </AppContainer>
     );
   }
 }
