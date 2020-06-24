@@ -62,6 +62,7 @@ class App extends React.Component {
         const novoTarefas = [...this.state.tarefas, novaTarefa]
         this.setState({tarefas: novoTarefas})
         this.state.inputValue = ""
+        console.log(novoTarefas)
     }    
   }
 
@@ -69,8 +70,11 @@ class App extends React.Component {
     const tarefasNovaLista = this.state.tarefas.map(tarefa => {
       if (id === tarefa.id) {
         return {...tarefa, completa: !tarefa.completa}
+      }else{
+        return tarefa
       }
     })
+    console.log(tarefasNovaLista)
     this.setState({tarefas: tarefasNovaLista})
   }
 
