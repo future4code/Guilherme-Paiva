@@ -34,10 +34,10 @@ const Formulario = (props) => {
           <Botoes onClick={props.renderizaLista}>Ir para página de lista</Botoes>
           <Box>
             <Labels>Nome</Labels>  
-            <Inputs onChange={props.pegaInputNome}
+            <Inputs onChange={props.pegaInputNome} value={props.trocaInputNome}
             />
             <Labels>E-mail</Labels>  
-            <Inputs onChange={props.pegaInputEmail}
+            <Inputs onChange={props.pegaInputEmail} value={props.trocaInputEmail}
             />
             <Botoes onClick={props.criaUsuario}>Salvar</Botoes>
           </Box>
