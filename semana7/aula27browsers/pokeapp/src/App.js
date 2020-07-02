@@ -51,7 +51,7 @@ const Image = styled.div`
 `
 const Infos = styled.div`
   height: 500px;
-  width: 400px;
+  width: 500px;
   margin-top: 50px;
 `
 const NomePoke = styled.h2`
@@ -69,40 +69,41 @@ const Sprite = styled.img`
 export class App extends React.Component {
   state = {
     arrayPokes: [],
-    arrayTipos: [],
+    arrayTipo1: [],
+    arrayTipo2: [],
     imagemPoke: "",
     numeroAleatorio: 0
   }
 
   componentDidMount = () => {
-    this.geraNumAleatorio(1, 150)
+    this.geraNumAleatorio(1, 809)
   }
 
   geraNumAleatorio = (min, max) => {
   min = Math.ceil(1);
-  max = Math.floor(150);
+  max = Math.floor(809);
   const numero = Math.floor(Math.random() * (max - min)) + min
-  console.log(this.state.numero)
   axios.get(`https://pokeapi.co/api/v2/pokemon/${numero}`)
     .then(response => {
       this.setState({arrayPokes: response.data})
       this.setState({imagemPoke: response.data.sprites.front_default})
+      this.setState({arrayTipo1: response.data.types[0].type.name})
+      this.setState({arrayTipo2: response.data.types[1].type.name})
     })
     .catch(error => {
       console.log(error.message)
     })
-
-    axios.get(`https://pokeapi.co/api/v2/type/${numero}`)
-    .then(response => {
-      this.setState({arrayTipos: response.data})
-    })
-    .catch(error => {
-      console.log(error.message)
-    })
-    console.log(this.state.arrayTipos)
 }
-
   render(){
+    console.log("oi")
+    /* exibeTipo2 
+      if (this.state.arrayTipo2){
+      alert("tem um segundo tipo")
+    }else{
+      alert("não tem um segundo tipo")
+    }
+    }  */
+
     return (
       <Page>
         <Sidebar>
@@ -115,7 +116,7 @@ export class App extends React.Component {
         </Image>
         <Infos>
           <NomePoke>#{this.state.arrayPokes.id} - {this.state.arrayPokes.name}</NomePoke>
-          <TipoPoke>{this.state.arrayTipos.name}</TipoPoke>
+          <TipoPoke>{this.state.arrayTipo1} {this.state.arrayTipo2}</TipoPoke>
         </Infos>
       </Page>
     );
