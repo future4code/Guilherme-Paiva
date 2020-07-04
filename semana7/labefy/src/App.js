@@ -3,7 +3,7 @@ import axios from 'axios'
 import {Page, Header, Sidebar, Main, CriarPlaylist, LabelCriarPlaylist, InputCriaPlaylist, 
   BotaoCriaPlaylist, ListaPlaylists, LabelPlaylists, CadaPlaylist, LinhaPlaylist, BotaoHome, 
   BotaoDeletar, PlaylistNome, LinhaMusica, LinhaMusicaArtista, QuebraEntreMusicas, TituloAdicionar,
-} from './components/styles'
+  BotaoPlayPause} from './components/styles'
 
 const axiosConfig = {
   headers: {
@@ -15,9 +15,15 @@ export class App extends React.Component {
   state = {
     playlists: [],
     musicas: [],
-    valorInputPlaylist:"",
-    tituloPlaylist: 'Teste',
+    valorInputPlaylist:'',
+    tituloPlaylist: '',
     mostraHome: true,
+    inputMusica: '',
+    inputArtista: '',
+    inputURL: '',
+    idPlaylist: '',
+    musicaTocando: false,
+    qualMusica: '',
   }
 
   componentDidMount = () => {
@@ -70,10 +76,52 @@ export class App extends React.Component {
   }
 
   doisEmUm = (playlist) => {
-    
       this.setState({mostraHome: false})
       axios.get(
         `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${playlist.id}/tracks`,
+        axiosConfig
+      )
+      .then((response) => {
+        this.setState({musicas: response.data.result.tracks})
+        this.setState({idPlaylist: playlist.id})
+      })
+      .catch((error) => {
+        alert("Falha ao exibir músicas da playlist")
+        console.log(error.message)
+      })
+    this.setState({tituloPlaylist: playlist.name})
+  }
+
+  onChangeInputPlaylist = event => {
+    this.setState({valorInputPlaylist: event.target.value})
+  }
+
+  onChangeInputMusica = event => {
+    this.setState({inputMusica: event.target.value})
+  }
+
+  onChangeInputArtista = event => {
+    this.setState({inputArtista: event.target.value})
+  }
+
+  onChangeInputURL = event => {
+    this.setState({inputURL: event.target.value})
+  }
+
+  adicionaMusica = () => {
+    const body = {
+      name: this.state.inputMusica,
+      artist: this.state.inputArtista,
+      url: this.state.inputURL
+    }
+    axios.post(
+      `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.state.idPlaylist}/tracks`,
+      body, axiosConfig
+    )
+    .then(() => {
+      this.setState({inputMusica: "", inputArtista: "", inputURL: ""})
+      axios.get(
+        `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.state.idPlaylist}/tracks`,
         axiosConfig
       )
       .then((response) => {
@@ -83,19 +131,55 @@ export class App extends React.Component {
         alert("Falha ao exibir músicas da playlist")
         console.log(error.message)
       })
-    
-
-    this.setState({tituloPlaylist: playlist.name})
+    })
+    .catch((error) => {
+      alert("Falha ao adicionar música")
+      console.log(error.message)
+    })
   }
 
-  
+  deletarMusica = (musicaid) => {
+    axios.delete(
+      `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.state.idPlaylist}/tracks/${musicaid}`,
+      axiosConfig
+    )
+    .then(() => {
+      axios.get(
+        `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.state.idPlaylist}/tracks`,
+        axiosConfig
+      )
+      .then((response) => {
+        this.setState({musicas: response.data.result.tracks})
+      })
+      .catch((error) => {
+        alert("Falha ao exibir músicas da playlist")
+        console.log(error.message)
+      })
+    })
+    .catch((error) => {
+      console.log(error.message)
+    })
+  }
 
-  onChangeInputPlaylist = event => {
-    this.setState({valorInputPlaylist: event.target.value})
+  playMusica = (url) => {
+    const urlMusica = url;
+    const audio = new Audio(urlMusica);
+    
+    audio.play();
+    this.setState({qualMusica: audio});
+    this.setState({musicaTocando: true})
+  }
+
+  pauseMusica = () => {
+    this.state.qualMusica.pause();
+    this.setState({musicaTocando: false})
   }
 
   render(){
-    console.log(this.state.tituloPlaylist)
+    const PlayPause = url => !this.state.musicaTocando ? 
+    <BotaoPlayPause onClick={() => this.playMusica(url)}>▶</BotaoPlayPause>
+    : <BotaoPlayPause onClick={this.pauseMusica}>∥</BotaoPlayPause>
+
     const trocaTela = () => {
       if (this.state.mostraHome){
         return(
@@ -104,22 +188,36 @@ export class App extends React.Component {
           return(
             <div>
             <PlaylistNome>{this.state.tituloPlaylist}</PlaylistNome>
-            <LinhaMusicaArtista>M Ú S I C A<span>A R T I S T A</span></LinhaMusicaArtista>
+            <LinhaMusicaArtista>P L A Y<span>M Ú S I C A</span><span>A R T I S T A</span><span>D E L E T A R</span></LinhaMusicaArtista>
             <hr />
             {this.state.musicas.map((musica) => {
               return(
                   <div><LinhaMusica key={musica.id}>
+                      {PlayPause(musica.url)}
                       {musica.name}<span>{musica.artist}</span>
-                  </LinhaMusica><QuebraEntreMusicas />
+                      <BotaoDeletar onClick={() => {this.deletarMusica(musica.id)}}>x</BotaoDeletar>
+                    </LinhaMusica><QuebraEntreMusicas />
                   </div>
               )
           })}
           <div>
               <TituloAdicionar>Adicionar músicas à playlist:</TituloAdicionar>
-              <input placeholder="Nome da Música"></input>
-              <input placeholder="Nome do Artista"></input>
-              <input placeholder="Link da Música"></input>
-              <button>Adicionar Música</button>
+              <input 
+              placeholder="Nome da Música"
+              onChange={this.onChangeInputMusica}
+              value={this.state.inputMusica}
+              />
+              <input
+              placeholder="Nome do Artista"
+              onChange={this.onChangeInputArtista}
+              value={this.state.inputArtista}
+              />
+              <input 
+              placeholder="Link da Música" 
+              onChange={this.onChangeInputURL}
+              value={this.state.inputURL}
+              />
+              <button onClick={this.adicionaMusica}>Adicionar Música</button>
             </div>
           </div>
           ) 
@@ -156,7 +254,6 @@ export class App extends React.Component {
         </Sidebar>
         <Main>
           {trocaTela()}
-            
         </Main>
       </Page>
     );

@@ -85,17 +85,16 @@ import styled from 'styled-components'
   margin: 0 0 30px 0;
   `
   export const LinhaMusica = styled.li`
-  margin: 10px 0 10px 4px;
-  width: 300px;
+  margin: 10px 0 10px 20px;
+  width: 500px;
   display: flex;
   justify-content: space-between;
   `
   export const LinhaMusicaArtista = styled.p`
   margin: 30px 0 0 4px;
-  width: 300px;
+  width: 580px;
   display: flex;
   justify-content: space-between;
-  text-align: center;
   `
   export const QuebraEntreMusicas = styled.hr`
   opacity: 20%;
@@ -106,4 +105,7 @@ import styled from 'styled-components'
   `
   export const TituloAdicionar = styled.h3`
   margin: 40px 0 5px 0;
+  `
+  export const BotaoPlayPause = styled.span`
+  color: rgb(179, 179, 179); 
   `
