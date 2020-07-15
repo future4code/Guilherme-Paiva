@@ -8,21 +8,21 @@ justify-content: center;
 align-items: center;
 background-color: grey;
 `
-export const Pagina = styled.div`
+export const App = styled.div`
 display: flex;
 flex-wrap: wrap;
-justify-content: center;
-width: 420px;
-height: 600px;
+width: 375px;
+height: 610px;
 background-color: lightyellow;
 box-shadow: 2px 2px 2px black;
 border-radius: 5px;
 `
 export const Header = styled.div`
-height: 100px;
+height: 80px;
 display: flex;
 justify-content: space-around;
-width: 420px;
+width: 375px;
+background-color: blue;
 `
 export const BotaoInicial = styled.button`
 margin: 15px 0px 0px;
@@ -46,4 +46,25 @@ border: none;
 background-color: lightblue;
 box-shadow: 2px 2px 9px black;
 outline: none;
+`
+export const Body = styled.div`
+width: 375px;
+height: 530px;
+display: flex;
+flex-direction: column;
+margin: 15px 0 0 20px;
+`
+export const Foto = styled.img`
+width: 50px;
+height: 50px;
+border-radius: 50px;
+border: none;
+`
+export const LinhaMatch = styled.div`
+display: inline-block;
+margin-top: 5px;
+`
+export const NomeMatch = styled.div`
+display: inline-block;
+padding: 0 0 10px 0;
 `

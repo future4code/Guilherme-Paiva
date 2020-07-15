@@ -5,14 +5,24 @@ import Matches from './components/tela matches/Matches'
 
 function App() {
 
+  const baseURL = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/guipaiva/clear"
+
   const [paginaInicial, setPaginaInicial] = useState(true)
 
   const renderizaTela = () => {
     if (paginaInicial === true) {
-      return <Inicial mudaTela={mudaPagina}/>
+      return <Inicial mudaTela={mudaPagina} limpaMatches={limpaTudo}/>
     } else {
-      return <Matches mudaTela={mudaPagina}/>
+      return <Matches mudaTela={mudaPagina} limpaMatches={limpaTudo}/>
     }
+  }
+
+  const limpaTudo = () => {
+    axios.put(baseURL)
+    .then(alert("Likes e swipes limpos!"))
+    .catch(erro => {
+      console.log(erro.message)
+    })
   }
 
   const mudaPagina = () => {
