@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import {App, LimparSM, BotaoMatches, Global, Header, BotaoDislike, BotaoLike, Body, 
-   Footer, FotoPerfil, NomeIdade, Bio, Infos} from './styles'
+import {App, LimparSM, BotaoMatches, Global, Header, BotaoDislike, BotaoLike, Body, Footer,
+    FotoPerfil, NomeIdade, Bio, Infos, LogoAstro, LogoMatch, LogoCoracao, Blur, AstromatchLogo} from './styles'
+import iconeMatches from './3022389.svg'
+import iconeLike from './like.svg'
+import iconeDislike from './dislike.svg'
 
 export default function Inicial (props) {
 
@@ -60,26 +63,29 @@ export default function Inicial (props) {
    }
 
     return (
-       <Global>
-        <App>
-         <Header> 
-            <h1>astromatch</h1>
-            <BotaoMatches onClick={props.mudaTela}>MATCHES</BotaoMatches>
-         </Header>
-         <Body>
-            <FotoPerfil src={fotoPerfil}></FotoPerfil>
-            <Infos>
-               <NomeIdade>{nomePerfil}, {idadePerfil}</NomeIdade>
-               <Bio>{bioPerfil}</Bio>
-            </Infos> 
-         </Body>
-         <Footer>
-            <BotaoDislike onClick={dislike}>Dislike</BotaoDislike>
-            <BotaoLike onClick={like}>Like</BotaoLike>
-         </Footer>     
+      <Global>
+         <App>
+            <Header> 
+               <AstromatchLogo>
+                  <LogoAstro>astro</LogoAstro><LogoMatch>m</LogoMatch><LogoCoracao>♡</LogoCoracao><LogoMatch>tch</LogoMatch>
+               </AstromatchLogo>
+               <BotaoMatches src={iconeMatches} onClick={props.mudaTela}/>
+            </Header>
+            <Body>
+               <Blur src={fotoPerfil}></Blur>
+               <FotoPerfil src={fotoPerfil}></FotoPerfil>
+               <Infos>
+                  <NomeIdade>{nomePerfil}, {idadePerfil}</NomeIdade>
+                  <Bio>{bioPerfil}</Bio>
+               </Infos> 
+            </Body>
+            <Footer>
+               <BotaoDislike onClick={dislike} src={iconeDislike} />
+               <BotaoLike onClick={like} src={iconeLike} className="animate__animate animate__pulse"/>
+            </Footer> 
             <LimparSM onClick={props.limpaMatches}>LIMPAR SWIPES e MATCHES</LimparSM>
-        </App>
-       </Global>
+         </App>
+      </Global>
 
     )
 

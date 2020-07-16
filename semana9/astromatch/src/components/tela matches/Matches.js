@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import {App, LimparSM, BotaoInicial, Global, Header, Foto, LinhaMatch, Body, NomeMatch} from './styles'
+import {App, LimparSM, BotaoInicial, Global, Header, Foto, LinhaMatch, Body, NomeMatch,
+      LogoSeus, LogoMatches, LogoSeusMatches} from './styles'
+import iconeHome from './2590698.svg'
+import { LogoCoracao } from '../tela inicial/styles'
 
 export default function Matches (props) {
 
@@ -34,8 +37,8 @@ export default function Matches (props) {
        <Global>
         <App>
          <Header> 
-            <h1>seus matches</h1>
-            <BotaoInicial onClick={props.mudaTela}>PÁGINA INICIAL</BotaoInicial>
+            <LogoSeusMatches><LogoSeus>seus</LogoSeus><LogoMatches>m</LogoMatches><LogoCoracao>♡</LogoCoracao><LogoMatches>tches</LogoMatches></LogoSeusMatches>
+            <BotaoInicial onClick={props.mudaTela} src={iconeHome} />
          </Header>     
          <Body>
             {arrayMatches.map((match) => {
