@@ -1,10 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import {App, LimparSM, BotaoMatches, Global, Header, BotaoDislike, BotaoLike, Body, Footer,
-    FotoPerfil, NomeIdade, Bio, Infos, LogoAstro, LogoMatch, LogoCoracao, Blur, AstromatchLogo} from './styles'
-import iconeMatches from './3022389.svg'
-import iconeLike from './like.svg'
-import iconeDislike from './dislike.svg'
+import {App, LimparSM, BotaoMatches, Global, Header, BotaoDislike, BotaoLike, Body, Footer, TelaCarregando, FotoPerfil, NomeIdade, Bio, Infos,
+   LogoAstro, LogoMatch, LogoCoracao, Blur, AstromatchLogo, Coracao1, Coracao2, Coracao3} from './styles'
 
 export default function Inicial (props) {
 
@@ -16,6 +13,7 @@ export default function Inicial (props) {
    const [idadePerfil, setIdadePerfil] = useState(0)
    const [bioPerfil, setBioPerfil] = useState('')
    const [idPerfil, setIdPerfil] = useState('')
+   const [carregando, setCarregando] = useState(true)
    
    useEffect(() => {
       mostraPerfil()
@@ -29,20 +27,7 @@ export default function Inicial (props) {
          setIdadePerfil(response.data.profile.age)
          setBioPerfil(response.data.profile.bio)
          setIdPerfil(response.data.profile.id)
-      }).catch(erro => {
-         console.log(erro.message)
-      })
-   }
-
-   const dislike = () => {
-      const bodyDislike = {
-         "id":idPerfil,
-         "choice": false
-      }
-      axios.post(likeURL, bodyDislike)
-      .then(() => {
-         alert("você deu dislike...")
-         mostraPerfil()
+         setCarregando(false)
       }).catch(erro => {
          console.log(erro.message)
       })
@@ -55,7 +40,19 @@ export default function Inicial (props) {
       }
       axios.post(likeURL, bodyLike)
       .then(() => {
-         alert("você deu like!")
+         mostraPerfil()
+      }).catch(erro => {
+         console.log(erro.message)
+      })
+   }
+
+   const dislike = () => {
+      const bodyDislike = {
+         "id":idPerfil,
+         "choice": false
+      }
+      axios.post(likeURL, bodyDislike)
+      .then(() => {
          mostraPerfil()
       }).catch(erro => {
          console.log(erro.message)
@@ -67,10 +64,11 @@ export default function Inicial (props) {
          <App>
             <Header> 
                <AstromatchLogo>
-                  <LogoAstro>astro</LogoAstro><LogoMatch>m</LogoMatch><LogoCoracao>♡</LogoCoracao><LogoMatch>tch</LogoMatch>
+                  <LogoAstro>astro</LogoAstro><LogoMatch>m</LogoMatch><LogoCoracao>❤</LogoCoracao><LogoMatch>tch</LogoMatch>
                </AstromatchLogo>
-               <BotaoMatches src={iconeMatches} onClick={props.mudaTela}/>
+               <BotaoMatches onClick={props.mudaTela}>👥</BotaoMatches>
             </Header>
+            {carregando ? <TelaCarregando>Carregando...<div><Coracao1>❤</Coracao1><Coracao2>❤</Coracao2><Coracao3>❤</Coracao3></div></TelaCarregando> : 
             <Body>
                <Blur src={fotoPerfil}></Blur>
                <FotoPerfil src={fotoPerfil}></FotoPerfil>
@@ -78,15 +76,14 @@ export default function Inicial (props) {
                   <NomeIdade>{nomePerfil}, {idadePerfil}</NomeIdade>
                   <Bio>{bioPerfil}</Bio>
                </Infos> 
-            </Body>
+            </Body>} 
             <Footer>
-               <BotaoDislike onClick={dislike} src={iconeDislike} />
-               <BotaoLike onClick={like} src={iconeLike} className="animate__animate animate__pulse"/>
+               <BotaoDislike onClick={dislike}>💔</BotaoDislike>
+               <BotaoLike onClick={like}>💚</BotaoLike>
             </Footer> 
             <LimparSM onClick={props.limpaMatches}>LIMPAR SWIPES e MATCHES</LimparSM>
          </App>
       </Global>
-
     )
 
 }
