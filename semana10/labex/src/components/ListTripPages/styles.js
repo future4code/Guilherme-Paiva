@@ -4,82 +4,80 @@ export const Pagina = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    align-items: center;
     width: 100vw;
     height: 100vh;
+    background-image: url('https://wallpaperplay.com/walls/full/0/9/e/12900.jpg');
+    background-size: 100%;
+    font-family: Helvetica;
 `
-export const Sidebar = styled.div`
+export const GridCards = styled.div`
     display: flex;
+`
+export const Card = styled.div`
+    width: 280px;
+    height: 320px;
+    margin: 10px;
+    display: flex;
+    padding: 15px;
+    opacity: 80%;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 2px 2px 5px black;
     flex-direction: column;
-    width: 20vw;
-    height: 100vh;
     align-items: center;
+    justify-content: space-around;
+    background-image: linear-gradient(45deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
+`
+export const TituloViagens = styled.h1`
+    color: white;
+    font-size: 50px;
+    margin: 100px 0px -10px 0px;
 `
 export const LogoLabeX = styled.h1`
-    margin: 285px 0 0 0;
+    margin-top: 0px;
     color: #42ADCB;
     font-size: 60px;
-`
-export const LogoAdmin = styled.h1`
-    margin: 0 0 15px 0;
-    color: #24578E;
-    font-size: 30px;
 `
 export const X = styled.em`
     color: #452585;
 `
-export const Copyright = styled.p`
-    bottom: 0px;
-    position: absolute;
-    margin: 0 10px 15px 10px;
-    font-size: 12px;
-    font-weight: 500;
-`
-export const Main = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80vw;
-    height: 100vh;
-    background-image: url('http://getwallpapers.com/wallpaper/full/a/3/9/75048.jpg');
-`
-export const TextoBemVindo = styled.p`
-    font-size: 35px;
-    margin: -15px 0 0 30px;
+export const NomeViagem = styled.p`
+    font-size: 19px;
     font-weight: 700;
-    color: white;
+    text-shadow: 2px 2px 2px black;
+    margin: 0px;
 `
-export const FotoFoguete = styled.img`
-    margin: 0;
-    transform: rotate(50deg);
-    filter: invert();
-    margin: 30px 20px 20px 20px;
-    width: 62px;
-    :hover {
-        transform: rotate(90deg);
-    }
-    :active {
-        transform: rotate(0deg);
-    }
+export const DescricaoViagem = styled.p`
+    text-align: center;
+    margin: 0px;
+    font-size: 18px;
 `
-export const Header = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-    width: 80vw;
-    background-image: linear-gradient(to bottom, rgba(20,0,0,10), transparent);
-    position: absolute;
-    top: 0px;
-`
-export const BotoesSidebar = styled.button`
-    border: none;
-    border-radius: 50px;
-    margin: 20px 0 0 0;
-    width: 150px;
-    height: 50px;
-    font-weight: bold;
+export const DuracaoViagem = styled.p`
+    margin: 0px;
     font-size: 17px;
-    color: white;
-    background-color: #24578E;
+`
+export const SaidaViagem = styled.p`
+    margin: 0px;
+    font-size: 17px;
+`
+export const BotaoCadastro = styled.button`
+    border-radius: 50px;
+    border: none;
+    font-weight: bold;
+    color: #244D81;
+    font-size: 15px;
+    background-color: white;
+    width: 180px;
+    height: 43px;
+    outline: none;
+    opacity: 100%;
+    box-shadow: 2px 2px 2px black;
+    cursor: pointer;
+    :active {
+        opacity: 80%;
+    }
+    :hover {
+        background-color: #D4D4D4;
+    }
 `

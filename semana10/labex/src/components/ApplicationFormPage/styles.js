@@ -24,7 +24,7 @@ export const Formulario = styled.div`
     box-shadow: 2px 2px 5px black;
 `
 export const LogoFormulario = styled.h1`
-    margin: 100px 0px 0px 0px;
+    margin: 100px 0px -10px 0px;
     color: white;
     font-size: 50px;
 `
@@ -32,6 +32,9 @@ export const LogoLabeX = styled.h1`
     margin-top: 0px;
     color: #42ADCB;
     font-size: 60px;
+`
+export const X = styled.em`
+    color: #452585;
 `
 export const BotaoInscricao = styled.button`
     margin-top: 20px;
@@ -46,25 +49,26 @@ export const BotaoInscricao = styled.button`
     outline: none;
     cursor: pointer;
     :active {
+        opacity: 80%;
+    }
+    :hover {
         background-color: #5B488A;
     }
 `
 export const Label = styled.label`
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 19px;
 `
 export const Input = styled.input`
     display: flex;
     justify-content: center;
     outline: none;
-    width: 180px;
+    padding-left: 3px;
+    width: 190px;
     height: 20px;
 `
-export const X = styled.em`
-    color: #452585;
-`
 export const Select = styled.select`
-    width: 188px;
+    width: 198px;
     height: 25px;
     outline: none;
 `

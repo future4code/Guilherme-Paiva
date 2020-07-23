@@ -6,6 +6,7 @@ export const Pagina = styled.div`
     flex-wrap: wrap;
     width: 100vw;
     height: 100vh;
+    font-family: Helvetica;
 `
 export const Sidebar = styled.div`
     display: flex;
@@ -13,9 +14,10 @@ export const Sidebar = styled.div`
     width: 20vw;
     height: 100vh;
     align-items: center;
+    justify-content: center;
 `
 export const LogoLabeX = styled.h1`
-    margin: 285px 0 0 0;
+    margin: -10px 0 0 0;
     color: #42ADCB;
     font-size: 60px;
 `
@@ -36,7 +38,41 @@ export const BotaoLogin = styled.button`
     font-weight: bold;
     font-size: 17px;
     color: white;
+    outline: none;
+    cursor: pointer;
     background-color: #24578E;
+    :active {
+        opacity: 70%;
+    }
+    :hover {
+        background-color: #55658F;
+    }
+`
+export const CriarUsuario = styled.a`
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #24578E;
+    cursor: pointer;
+`
+export const BotaoCriarUsuario = styled.button`
+    border: none;
+    border-radius: 50px;
+    margin: 20px 0 0 0;
+    width: 100px;
+    height: 34px;
+    font-weight: bold;
+    font-size: 12px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    background-color: #24578E;
+    :active {
+        opacity: 70%;
+    }
+    :hover {
+        background-color: #55658F;
+    }
 `
 export const Label = styled.label`
     margin-top: 10px;
@@ -70,6 +106,11 @@ export const Main = styled.div`
 `
 export const TextoBemVindo = styled.p`
     font-size: 28px;
+    font-weight: 500;
+    color: white;
+`
+export const TextoBemVindo2 = styled.p`
+    font-size: 25px;
     font-weight: 500;
     color: white;
 `

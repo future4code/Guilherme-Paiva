@@ -28,8 +28,8 @@ export const FotoFoguete = styled.img`
 `
 export const LogoInscricao = styled.h1`
     color: white;
-    font-size: 30px;
-    margin: 60px 0 20px 0;
+    font-size: 24px;
+    margin: 50px 0 20px 0;
 `
 export const X = styled.em`
     color: #452585;
@@ -49,6 +49,9 @@ export const BotaoInscricao = styled.button`
     cursor: pointer;
     :active {
         opacity: 80%;
+    }
+    :hover {
+        background-color: #D4D4D4;
     }
 `
 export const BotaoLogin = styled.button`

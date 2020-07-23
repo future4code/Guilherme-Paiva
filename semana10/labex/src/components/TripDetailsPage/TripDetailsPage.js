@@ -4,14 +4,18 @@ import {useHistory} from 'react-router-dom';
 const TripDetailsPage = () => {
     const history = useHistory();
 
-    const goToListTripsPage = () => {
-        history.push("/viagens/lista")
+    const goToCreateTripPage = () => {
+        history.push("/viagens/criar")
     }
 
 return (
     <div>
         <h1>Trip Details</h1>
-        <button onClick={goToListTripsPage}>Lista de Viagens</button>
+        <p>Detalhes Viagem 1</p>
+        <p>Detalhes Viagem 2</p>
+        <p>Detalhes Viagem 3</p>
+        <button onClick={goToCreateTripPage}>Criar Nova Viagem</button>
+        <button>Logout</button>
     </div>
     )
 }

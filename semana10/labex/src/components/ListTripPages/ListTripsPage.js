@@ -1,35 +1,53 @@
-import React from 'react';
-import {useHistory} from 'react-router-dom';
-import {Pagina, Sidebar, LogoLabeX, LogoAdmin, Copyright, Main, TextoBemVindo, FotoFoguete, X, Header, BotoesSidebar} from './styles'
+import React, { useEffect, useState } from 'react'
+import {useHistory} from 'react-router-dom'
+import axios from 'axios'
+import CardViagem from './CardViagem'
+import {Pagina, GridCards, TituloViagens, LogoLabeX, X} from './styles'
+
 
 const ListTripsPage = () => {
+
+    const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/guipaiva-turing"
+
+    const [arrayViagens, setArrayViagens] = useState([])
+
+    useEffect(() => {
+        mostraViagens()
+    }, [])
+
     const history = useHistory();
 
-    const goToCreateTripPage = () => {
-        history.push("/viagens/criar")
+    const goToApplicationFormPage = () => {
+        history.push("/inscricao")
     }
 
-    const goToTripDetailsPage = () => {
-        history.push("/viagens/detalhes")
+    const mostraViagens = () => {
+        axios.get(`${baseUrl}/trips`)
+        .then(response => {
+            setArrayViagens(response.data.trips)
+        }).catch(error => {
+            console.log(error.message)
+        })
     }
 
-return (
-    <Pagina>
-        <Sidebar>
+    return (
+        <Pagina>
+            <TituloViagens>VIAGENS DISPONÍVEIS</TituloViagens>
             <LogoLabeX>Labe<X>X</X></LogoLabeX>
-            <LogoAdmin>Bem-vindo, ADMIN</LogoAdmin>
-            <BotoesSidebar onClick={goToCreateTripPage}>Criar nova viagem</BotoesSidebar>
-            <BotoesSidebar onClick={goToTripDetailsPage}>Detalhes da viagem</BotoesSidebar>
-            <Copyright>© 2020 LabeX - Todos os direitos reservados</Copyright>
-        </Sidebar>
-        <Main>
-            <Header>
-                <TextoBemVindo>LISTA DE VIAGENS</TextoBemVindo>
-                <FotoFoguete src="https://image.flaticon.com/icons/svg/28/28356.svg"></FotoFoguete>
-            </Header>
-        </Main>
-    </Pagina>
-    )
+            <GridCards>
+            {arrayViagens.map((viagem) => {
+                return <CardViagem 
+                nomeViagem = {viagem.name}
+                planetaViagem = {viagem.planet}
+                descricaoViagem = {viagem.description}
+                duracaoViagem = {viagem.durationInDays}
+                dataViagem = {viagem.date}
+                mudaPaginaInscricao = {goToApplicationFormPage}
+                />
+            })}
+            </GridCards>
+        </Pagina>
+        )
 }
 
 export default ListTripsPage;

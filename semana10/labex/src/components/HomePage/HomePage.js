@@ -5,8 +5,8 @@ import {Pagina, LogoLabeX, SubLogo, FotoFoguete, LogoInscricao, X, BotaoInscrica
 const HomePage = () => {
     const history = useHistory();
 
-    const goToApplicationFormPage = () => {
-        history.push("/inscricao")
+    const goToListTripsPage = () => {
+        history.push("/listadeviagens")
     }
 
     const goToLoginPage = () => {
@@ -18,8 +18,8 @@ return (
         <LogoLabeX>Labe<X>X</X></LogoLabeX>
         <SubLogo>ENCONTRE AS MELHORES VIAGENS ESPACIAIS!</SubLogo>
         <FotoFoguete src="https://image.flaticon.com/icons/svg/28/28356.svg"></FotoFoguete>
-        <LogoInscricao>Faça já sua inscrição!</LogoInscricao>
-        <BotaoInscricao onClick={goToApplicationFormPage}>QUERO IR PARA O ESPAÇO!</BotaoInscricao>
+        <LogoInscricao>Conheça nossas viagens e faça já sua inscrição!</LogoInscricao>
+        <BotaoInscricao onClick={goToListTripsPage}>QUERO IR PARA O ESPAÇO!</BotaoInscricao>
         <BotaoLogin onClick={goToLoginPage}>Admin Login</BotaoLogin>
     </Pagina>
     )
