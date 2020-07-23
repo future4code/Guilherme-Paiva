@@ -7,7 +7,7 @@ const CardViagem = (props) => {
             <NomeViagem>{props.nomeViagem}</NomeViagem>
             <DescricaoViagem>{props.descricaoViagem}</DescricaoViagem>
             <DuracaoViagem>Duração: {props.duracaoViagem} dias</DuracaoViagem>
-            <SaidaViagem>Data de saída: {props.dataViagem}</SaidaViagem>
+            <SaidaViagem>Data da saída: {props.dataViagem}</SaidaViagem>
             <BotaoCadastro onClick={props.mudaPaginaInscricao}>Quero me cadastrar!</BotaoCadastro>
         </Card>
     )

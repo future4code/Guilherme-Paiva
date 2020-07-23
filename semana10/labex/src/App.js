@@ -31,7 +31,7 @@ const App = () => {
         <Route exact path ="/viagens">
            <TripsLista />
         </Route>
-        <Route exact path ="/viagens/detalhes">
+        <Route exact path ="/viagens/detalhes/:viagemId">
            <TripDetailsPage />
         </Route>
         <Route exact path ="/viagens/criar">

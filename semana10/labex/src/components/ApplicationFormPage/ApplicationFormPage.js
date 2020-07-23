@@ -13,6 +13,7 @@ const ApplicationFormPage = (props) => {
     const [profissao, setProfissao] = useState('')
     const [pais, setPais] = useState('')
     const [mensagem, setMensagem] = useState('')
+    const [id, setId] = useState('')
 
     useEffect(() => {
         mostraViagens()
@@ -35,7 +36,7 @@ const ApplicationFormPage = (props) => {
             profession: profissao,
             country: pais
         }
-        axios.post(`${baseUrl}/trips/${viagem.id}/apply`, body) 
+        axios.post(`${baseUrl}/trips/${id}/apply`, body) 
         .then(() => {
             alert("Formulário submetido com sucesso. Boa sorte!")
             setViagem("")
@@ -50,9 +51,6 @@ const ApplicationFormPage = (props) => {
         })
     }
 
-    const onChangeViagem = event => {
-        setViagem(event.target.value)
-    }
     const onChangeNome = event => {
         setNome(event.target.value)
     }
@@ -68,6 +66,10 @@ const ApplicationFormPage = (props) => {
     const onChangeMensagem = event => {
         setMensagem(event.target.value)
     }
+    const onChangeId = event => {
+        setId(event.target.value)
+        setViagem(event.target.value)
+    }
 
     return (
         <Pagina>
@@ -75,10 +77,10 @@ const ApplicationFormPage = (props) => {
             <LogoLabeX>Labe<X>X</X></LogoLabeX>
             <Formulario>
                 <Label>Viagem</Label>
-                <Select value={viagem} onChange={onChangeViagem}>
+                <Select value={viagem} onChange={onChangeId}>
                     <option>Selecione uma viagem</option>
                     {arrayViagens.map((viagem) => {
-                        return <option>{viagem.name}</option>
+                        return <option value={viagem.id}>{viagem.name}</option>
                     })}
                 </Select>
                 <Label>Nome</Label>
