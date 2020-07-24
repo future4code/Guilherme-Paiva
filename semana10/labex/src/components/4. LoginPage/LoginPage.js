@@ -11,7 +11,7 @@ const LoginPage = () => {
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
 
-    const goToTripsLista = () => {
+    const goToInternalTripsPage = () => {
         const body = {
             email: email,
             password: senha
@@ -28,7 +28,7 @@ const LoginPage = () => {
         })
     }
 
-    const goToNewUsuario = () => {
+    const goToNewUserPage = () => {
         history.push("/login/criar")
     }
 
@@ -48,8 +48,8 @@ return (
             <Input value={email} onChange={onChangeEmail} />
             <Label>Senha</Label>
             <Input type="password" value={senha} onChange={onChangeSenha} />
-            <BotaoLogin onClick={goToTripsLista}>LOGIN</BotaoLogin>
-            <CriarUsuario onClick={goToNewUsuario}>Criar novo usuário</CriarUsuario>
+            <BotaoLogin onClick={goToInternalTripsPage}>LOGIN</BotaoLogin>
+            <CriarUsuario onClick={goToNewUserPage}>Criar novo usuário</CriarUsuario>
             <Copyright>© 2020 LabeX - Todos os direitos reservados</Copyright>
         </Sidebar>
         <Main>

@@ -1,4 +1,12 @@
 import styled from 'styled-components'
+import BG from '../Images/01.jpg'
+
+export const Triste = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
 
 export const Pagina = styled.div`
     display: flex;
@@ -6,12 +14,13 @@ export const Pagina = styled.div`
     width: 100vw;
     height: 100vh;
     align-items: center;
-    background-image: url('https://wallpaperplay.com/walls/full/8/c/2/12870.jpg');
+    justify-content: center;
+    background-image: url(${BG});
     background-size: 100%;
     font-family: Helvetica;
 `
 export const LogoLabeX = styled.h1`
-    margin: 100px 0 -15px 0;
+    margin: -30px 0 -15px 0;
     color: #42ADCB;
     font-size: 100px;
 `

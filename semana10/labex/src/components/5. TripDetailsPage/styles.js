@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import BG from '../Images/04.jpg'
 
 export const Pagina = styled.div`
     display: flex;
@@ -36,7 +37,7 @@ export const Main = styled.div`
     align-items: center;
     width: 80vw;
     height: 100vh;
-    background-image: url('http://getwallpapers.com/wallpaper/full/a/3/9/75048.jpg');
+    background-image: url(${BG});
 `
 export const Copyright = styled.p`
     bottom: 0px;
@@ -78,7 +79,7 @@ export const BotaoMesmaPagina = styled.button`
 `
 export const Logoff = styled.a`
     margin-top: 20px;
-    font-size: 15px;
+    font-size: 19px;
     font-weight: bold;
     color: #24578E;
     cursor: pointer;

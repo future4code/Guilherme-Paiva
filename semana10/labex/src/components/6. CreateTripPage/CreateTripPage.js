@@ -15,7 +15,7 @@ const CreateTripPage = () => {
     const [descricaoViagem, setDescricaoViagem] = useState("")
     const [duracaoViagem, setDuracaoViagem] = useState("")
 
-    const goToTripsLista = () => {
+    const goToInternalTripsPage = () => {
         history.push("/viagens")
     }
 
@@ -75,7 +75,7 @@ return (
         <Sidebar>
             <LogoLabeX>Labe<X>X</X></LogoLabeX>
             <LogoAdmin>Bem vindx, ADMIN</LogoAdmin>
-            <Botao onClick={goToTripsLista}>Lista de Viagens</Botao>    
+            <Botao onClick={goToInternalTripsPage}>Lista de Viagens</Botao>    
             <BotaoMesmaPagina>Criar nova viagem</BotaoMesmaPagina>
             <Logoff onClick={logoff}>Sair</Logoff>
             <Copyright>© 2020 LabeX - Todos os direitos reservados</Copyright>

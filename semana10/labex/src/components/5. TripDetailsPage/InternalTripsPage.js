@@ -4,7 +4,7 @@ import axios from 'axios'
 import {Pagina, Sidebar, LogoLabeX, X, LogoAdmin, Main, Copyright, TextoBemVindo, FotoFoguete, Botao, BotaoMesmaPagina, Header, GridViagens, CardViagem,
     BotaoDetalhes, Logoff} from './styles'
 
-const TripsLista = () => {
+const InternalTripsPage = () => {
 
     const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/guipaiva-turing"
     const history = useHistory();
@@ -65,4 +65,4 @@ const TripsLista = () => {
     )    
 }
 
-export default TripsLista
+export default InternalTripsPage

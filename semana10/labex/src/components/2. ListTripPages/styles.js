@@ -1,13 +1,15 @@
 import styled from 'styled-components'
+import BG from '../Images/02.jpg'
 
 export const Pagina = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     width: 100vw;
     height: 100vh;
-    background-image: url('https://wallpaperplay.com/walls/full/0/9/e/12900.jpg');
+    background-image: url(${BG});
     background-size: 100%;
     font-family: Helvetica;
 `
@@ -32,7 +34,7 @@ export const Card = styled.div`
 export const TituloViagens = styled.h1`
     color: white;
     font-size: 50px;
-    margin: 100px 0px -10px 0px;
+    margin: 0px 0px -10px 0px;
 `
 export const LogoLabeX = styled.h1`
     margin-top: 0px;
@@ -43,7 +45,8 @@ export const X = styled.em`
     color: #452585;
 `
 export const NomeViagem = styled.p`
-    font-size: 19px;
+    font-size: 30px;
+    text-align: center;
     font-weight: 700;
     text-shadow: 2px 2px 2px black;
     margin: 0px;

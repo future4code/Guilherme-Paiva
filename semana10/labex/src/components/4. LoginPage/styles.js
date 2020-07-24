@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import BG from '../Images/04.jpg'
 
 export const Pagina = styled.div`
     display: flex;
@@ -21,22 +22,22 @@ export const LogoLabeX = styled.h1`
     color: #42ADCB;
     font-size: 60px;
 `
-export const X = styled.em`
-    color: #452585;
-`
 export const LogoAdmin = styled.h1`
     margin: 0 0 15px 0;
     color: #24578E;
-    font-size: 26px;
+    font-size: 30px;
 `
-export const Botao = styled.button`
+export const X = styled.em`
+    color: #452585;
+`
+export const BotaoLogin = styled.button`
     border: none;
     border-radius: 50px;
     margin: 20px 0 0 0;
-    width: 160px;
-    height: 44px;
+    width: 100px;
+    height: 34px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 17px;
     color: white;
     outline: none;
     cursor: pointer;
@@ -48,24 +49,45 @@ export const Botao = styled.button`
         background-color: #55658F;
     }
 `
-export const BotaoMesmaPagina = styled.button`
-    border: none;
-    border-radius: 50px;
-    margin: 20px 0 0 0;
-    width: 160px;
-    height: 44px;
-    font-weight: bold;
-    font-size: 14px;
-    color: white;
-    outline: none;
-    background-color: #38435E;
-`
-export const Logoff = styled.a`
+export const CriarUsuario = styled.a`
     margin-top: 20px;
     font-size: 15px;
     font-weight: bold;
     color: #24578E;
     cursor: pointer;
+`
+export const BotaoCriarUsuario = styled.button`
+    border: none;
+    border-radius: 50px;
+    margin: 20px 0 0 0;
+    width: 100px;
+    height: 34px;
+    font-weight: bold;
+    font-size: 12px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    background-color: #24578E;
+    :active {
+        opacity: 70%;
+    }
+    :hover {
+        background-color: #55658F;
+    }
+`
+export const Label = styled.label`
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #24578E; 
+    opacity: 75%;
+`
+export const Input = styled.input`
+    display: flex;
+    justify-content: center;
+    outline: none;
+    width: 180px;
+    height: 20px;
 `
 export const Copyright = styled.p`
     bottom: 0px;
@@ -76,55 +98,27 @@ export const Copyright = styled.p`
 `
 export const Main = styled.div`
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 80vw;
     height: 100vh;
-    background-image: url('http://getwallpapers.com/wallpaper/full/a/3/9/75048.jpg');
-`
-export const Header = styled.div`
-    background-image: linear-gradient(to bottom, rgba(2,0,2,1), transparent);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80vw;
-    height: 120px;
-    top: 0;
-    position: absolute;
+    background-image: url(${BG});
 `
 export const TextoBemVindo = styled.p`
-    font-size: 50px;
+    font-size: 28px;
     font-weight: 500;
     color: white;
-    margin: -15px 0 0 30px;
+`
+export const TextoBemVindo2 = styled.p`
+    font-size: 25px;
+    font-weight: 500;
+    color: white;
 `
 export const FotoFoguete = styled.img`
-    margin: -5px 0 0 0;
+    margin: 0;
     transform: rotate(50deg);
     filter: invert();
-    margin-right: 30px;
-    width: 75px;
-`
-export const FormularioNovaViagem = styled.div`
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 450px;
-    height: 350px;
-`
-export const BotaoCriarViagem = styled.button`
-
-`
-export const Input = styled.input`
-
-`
-export const Label = styled.input`
-
-`
-export const Select = styled.input`
-
+    margin: 20px;
+    width: 250px;
 `
