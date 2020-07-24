@@ -64,6 +64,12 @@ export const SaidaViagem = styled.p`
     margin: 0px;
     font-size: 17px;
 `
+export const PlanetaViagem = styled.p`
+    margin: 0 0 -7px 0;
+    color: #F6F6F6;
+    font-weight: bold;
+    text-transform: uppercase;
+`
 export const BotaoCadastro = styled.button`
     border-radius: 50px;
     border: none;

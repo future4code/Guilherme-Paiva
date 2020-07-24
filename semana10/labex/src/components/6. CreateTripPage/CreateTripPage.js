@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios'
 import {Pagina, Sidebar, LogoLabeX, X, LogoAdmin, Main, Copyright, TextoBemVindo, FotoFoguete, Botao, BotaoMesmaPagina, Header, FormularioNovaViagem,
-    Logoff} from './styles'
+    Logoff, Label, Input, BotaoCriaViagem, Select} from './styles'
 
 const CreateTripPage = () => {
-
-    const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/guipaiva-turing"
     const history = useHistory();
 
+    const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/guipaiva-turing"
+    
     const [nomeViagem, setNomeViagem] = useState("")
     const [planetaViagem, setPlanetaViagem] = useState("")
     const [dataViagem, setDataViagem] = useState("")
@@ -19,10 +19,15 @@ const CreateTripPage = () => {
         history.push("/viagens")
     }
 
+    useEffect(() => {
+        const token = window.localStorage.getItem('token')
+        if (token === null){
+            history.push("/login")
+        }
+    }, [])
+
     const criaViagem = () => {
-
         const token = window.localStorage.getItem("token")
-
         const body = {
             name: nomeViagem,
             planet: planetaViagem,
@@ -42,7 +47,6 @@ const CreateTripPage = () => {
             setDataViagem("")
             setDescricaoViagem("")
             setDuracaoViagem("")
-            
         }).catch(error => {
             alert("Por favor preencha todos os campos e tente novamente.")
             console.log(error.message)
@@ -86,21 +90,31 @@ return (
                 <FotoFoguete src="https://image.flaticon.com/icons/svg/28/28356.svg"></FotoFoguete>
             </Header>
             <FormularioNovaViagem>
-                <label>Nome</label>
-                <input value={nomeViagem} onChange={onChangeNomeViagem}/>
-                <label>Planeta</label>
-                <input value={planetaViagem} onChange={onChangePlanetaViagem}/>
-                <label>Data</label>
-                <input value={dataViagem} onChange={onChangeDataViagem}/>
-                <label>Descrição</label>
-                <input value={descricaoViagem} onChange={onChangeDescricaoViagem}/>
-                <label>Duração (dias)</label>
-                <input value={duracaoViagem} onChange={onChangeDuracaoViagem}/>
-                <button onClick={criaViagem}>Criar viagem</button>
+                <Label>Planeta</Label>
+                <Select value={planetaViagem} onChange={onChangePlanetaViagem}>
+                    <option>Selecione um planeta</option>
+                    <option>Mercúrio</option>
+                    <option>Vênus</option>
+                    <option>Marte</option>
+                    <option>Júpiter</option>
+                    <option>Saturno</option>
+                    <option>Urano</option>
+                    <option>Netuno</option>
+                    <option>Plutão</option>
+                </Select>
+                <Label>Nome da viagem</Label>
+                <Input value={nomeViagem} onChange={onChangeNomeViagem} />
+                <Label>Data</Label>
+                <Input value={dataViagem} onChange={onChangeDataViagem} />
+                <Label>Descrição</Label>
+                <Input value={descricaoViagem} onChange={onChangeDescricaoViagem} />
+                <Label>Duração (dias)</Label>
+                <Input value={duracaoViagem} onChange={onChangeDuracaoViagem} />
+                <BotaoCriaViagem onClick={criaViagem}>Criar viagem</BotaoCriaViagem>
             </FormularioNovaViagem>
         </Main>
     </Pagina>
     )
 }
 
-export default CreateTripPage;
+export default CreateTripPage

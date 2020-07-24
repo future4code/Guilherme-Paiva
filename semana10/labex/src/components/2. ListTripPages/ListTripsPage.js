@@ -6,6 +6,7 @@ import {Pagina, GridCards, TituloViagens, LogoLabeX, X} from './styles'
 
 
 const ListTripsPage = () => {
+    const history = useHistory();
 
     const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/guipaiva-turing"
 
@@ -14,9 +15,7 @@ const ListTripsPage = () => {
     useEffect(() => {
         mostraViagens()
     }, [])
-
-    const history = useHistory();
-
+    
     const goToApplicationFormPage = () => {
         history.push("/inscricao")
     }

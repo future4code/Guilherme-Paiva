@@ -7,7 +7,6 @@ export const Triste = styled.div`
     justify-content: center;
     align-items: center;
 `
-
 export const Pagina = styled.div`
     display: flex;
     flex-direction: column;

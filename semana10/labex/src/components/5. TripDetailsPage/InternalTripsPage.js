@@ -5,10 +5,10 @@ import {Pagina, Sidebar, LogoLabeX, X, LogoAdmin, Main, Copyright, TextoBemVindo
     BotaoDetalhes, Logoff} from './styles'
 
 const InternalTripsPage = () => {
-
-    const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/guipaiva-turing"
     const history = useHistory();
 
+    const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/guipaiva-turing"
+    
     const [arrayViagens, setArrayViagens] = useState([])
 
     const goToCreateTripPage = () => {
@@ -21,6 +21,10 @@ const InternalTripsPage = () => {
 
     useEffect(() => {
         mostraViagens()
+        const token = window.localStorage.getItem('token')
+        if (token === null){
+            history.push("/login")
+        }
     }, [])
 
     const mostraViagens = () => {

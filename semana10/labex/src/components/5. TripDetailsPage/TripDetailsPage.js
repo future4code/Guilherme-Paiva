@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
-import {Pagina, Sidebar, LogoLabeX, X, LogoAdmin, Main, Copyright, TextoBemVindo, FotoFoguete, Botao, CardDetalhesViagem, Header,
-    CardCandidato, GridCandidatos, GridAprovados, CardAprovado, Logoff} from './styles'
+import {Pagina, Sidebar, LogoLabeX, X, LogoAdmin, Main, Copyright, TextoBemVindo, FotoFoguete, Botao, CardDetalhesViagem, Header, BotaoAprovaCandidato, BotaoReprovaCandidato,
+    CardCandidato, GridCandidatos, GridAprovados, CardAprovado, Logoff, TextField, TripInfo, TextoCandidatosAprovados, BotaoDeletarViagem} from './styles'
 import axios from 'axios';
 
 const TripDetailsPage = () => {
-    
-    const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/guipaiva-turing"
     const history = useHistory();
 
+    const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/guipaiva-turing"
+    
     const [viagemNome, setViagemNome] = useState('')
     const [viagemPlaneta, setViagemPlaneta] = useState('')
     const [viagemDescricao, setViagemDescricao] = useState('')
@@ -27,6 +27,10 @@ const TripDetailsPage = () => {
 
     useEffect(() => {
         mostraDetalhesViagem()
+        const token = window.localStorage.getItem('token')
+        if (token === null){
+            history.push("/login")
+        }
     }, [])
 
     const params = useParams()
@@ -72,6 +76,26 @@ const TripDetailsPage = () => {
         })
     }
 
+    const reprovaCandidato = (candidatoId) => {
+        const token = window.localStorage.getItem("token")
+
+        const body = {
+            approve: false
+        }
+
+        axios.put(`${baseUrl}/trips/${params.viagemId}/candidates/${candidatoId}/decide`, body, {
+            headers: {
+                auth: token
+            }
+        })
+        .then(() => {
+            alert("Candidato reprovado")
+            mostraDetalhesViagem()
+        }).catch((error) => {
+            console.log(error.message)
+        })
+    }
+
     const deletaViagem = () => {
         axios.delete(`${baseUrl}/trips/${params.viagemId}`)
         .then(() => {
@@ -85,7 +109,7 @@ const TripDetailsPage = () => {
     const logoff = () => {
         localStorage.clear("token")
         history.push("/login")
-    }
+    }   
 
     return (
         <Pagina>
@@ -103,27 +127,30 @@ const TripDetailsPage = () => {
                         <FotoFoguete src="https://image.flaticon.com/icons/svg/28/28356.svg"></FotoFoguete>
                     </Header>
                     <CardDetalhesViagem>
-                        <div>Nome da viagem: {viagemNome}</div>
-                        <div>Planeta: {viagemPlaneta}</div>
-                        <div>Descrição: {viagemDescricao}</div>
-                        <div>Duração: {viagemDuracao} dias</div>
-                        <div>Data de saída: {viagemData}</div>
-                        <button onClick={deletaViagem}>Deletar viagem</button>
+                        <div><TextField>Nome da viagem: </TextField><TripInfo>{viagemNome}</TripInfo></div>
+                        <div><TextField>Planeta: </TextField><TripInfo>{viagemPlaneta}</TripInfo></div>
+                        <div><TextField>Descrição: </TextField><TripInfo>{viagemDescricao}</TripInfo></div>
+                        <div><TextField>Duração: </TextField><TripInfo>{viagemDuracao} dias</TripInfo></div>
+                        <div><TextField>Data de saída: </TextField><TripInfo>{viagemData}</TripInfo></div>
+                        <BotaoDeletarViagem onClick={deletaViagem}>Deletar viagem</BotaoDeletarViagem>
                     </CardDetalhesViagem>
-                    <TextoBemVindo>CANDIDATOS</TextoBemVindo>
+                    <TextoCandidatosAprovados>CANDIDATOS</TextoCandidatosAprovados>
                     <GridCandidatos>
                         {viagemCandidatos.map((candidato) => {
                             return <CardCandidato>
-                                <div>Nome: {candidato.name}</div>
-                                <div>Idade: {candidato.age}</div>
-                                <div>País: {candidato.country}</div>
-                                <div>Profissão: {candidato.profession}</div>
-                                <div>Mensagem: {candidato.applicationText}</div>
-                                <button onClick={() => aprovaCandidato(candidato.id)}>Aprovar</button>
+                                <div>NOME: {candidato.name}</div>
+                                <div>IDADE: {candidato.age}</div>
+                                <div>PAÍS: {candidato.country}</div>
+                                <div>PROFISSÃO: {candidato.profession}</div>
+                                <div>MENSAGEM: {candidato.applicationText}</div>
+                                <div>
+                                    <BotaoAprovaCandidato onClick={() => aprovaCandidato(candidato.id)}>Aprovar</BotaoAprovaCandidato>
+                                    <BotaoReprovaCandidato onClick={() => reprovaCandidato(candidato.id)}>Reprovar</BotaoReprovaCandidato>
+                                </div>
                             </CardCandidato>
                         })}
                     </GridCandidatos>
-                    <TextoBemVindo>APROVADOS</TextoBemVindo>
+                    <TextoCandidatosAprovados>APROVADOS</TextoCandidatosAprovados>
                     <GridAprovados>
                         {viagemAprovados.map((aprovado) => {
                             return <CardAprovado>
@@ -134,10 +161,10 @@ const TripDetailsPage = () => {
                                 <div>Mensagem: {aprovado.applicationText}</div>
                             </CardAprovado>
                         })}
-                    </GridAprovados>    
+                    </GridAprovados>   
                 </Main>
             </Pagina>
         )
 }
 
-export default TripDetailsPage;
+export default TripDetailsPage

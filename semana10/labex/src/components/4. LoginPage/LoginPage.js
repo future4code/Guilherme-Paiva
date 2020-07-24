@@ -4,10 +4,10 @@ import {Sidebar, Main, Pagina, LogoLabeX, LogoAdmin, X, BotaoLogin, Label, Input
 import axios from 'axios';
 
 const LoginPage = () => {
-
-    const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/guipaiva-turing"
     const history = useHistory();
 
+    const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/guipaiva-turing"
+    
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
 
@@ -61,4 +61,4 @@ return (
     )
 }
 
-export default LoginPage;
+export default LoginPage

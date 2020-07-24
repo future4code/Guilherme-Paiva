@@ -109,23 +109,53 @@ export const FotoFoguete = styled.img`
     width: 75px;
 `
 export const FormularioNovaViagem = styled.div`
-    background-color: white;
     display: flex;
+    margin: 50px 0 0 0;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 450px;
-    height: 350px;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    background-image: linear-gradient(155deg, #0250c5 35%, #d43f8d 100%);
+    opacity: 85%;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 2px 2px 5px black;
 `
-export const BotaoCriarViagem = styled.button`
-
+export const BotaoCriaViagem = styled.button`
+    margin-top: 20px;
+    height: 30px;
+    border-radius: 50px;
+    border: none;
+    font-weight: bold;
+    font-size: 17px;
+    color: white;
+    background-color: #452585;
+    width: 160px;
+    height: 40px;
+    outline: none;
+    cursor: pointer;
+    :active {
+        opacity: 80%;
+    }
+    :hover {
+        background-color: #5B488A;
+    }
 `
 export const Input = styled.input`
-
+    display: flex;
+    justify-content: center;
+    outline: none;
+    padding-left: 4px;
+    width: 240px;
+    height: 20px;
 `
-export const Label = styled.input`
-
+export const Label = styled.label`
+    margin-top: 10px;
+    font-size: 19px;
 `
-export const Select = styled.input`
-
+export const Select = styled.select`
+    outline: none;
+    width: 248px;
+    height: 25px;
 `
