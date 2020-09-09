@@ -1,0 +1,64 @@
+### Exercício 1
+a) Temos como resposta um array contendo o ator e suas infomações no formato de objeto.
+
+b) A função é:
+```
+const getActorByName = async (name: string): Promise<any> => {
+  const result = await connection.raw(`
+    SELECT * FROM Actor WHERE name = '${name}'
+  `)
+  console.log(result[0])
+  return result[0][0]
+}
+```
+
+c) A função é:
+```
+const getActorsByGender = async (gender: string): Promise<any> => {
+  const result = await connection.raw(`
+    SELECT COUNT(*) as count FROM Actor WHERE gender = '${gender}'
+  `)
+  console.log(result[0])
+  return result[0]
+}
+```
+
+### Exercício 2
+a) A função é:
+```
+const updateSalaryById = async (
+  id: string,
+  salary: number,
+): Promise<any> => {
+  await connection("Actor")
+    .update({
+      salary: salary
+    })
+    .where("id", id);
+};
+```
+
+b) A função é:
+```
+const deleteActor = async (
+  id: string,
+): Promise<void> => {
+  await connection("Actor")
+  .delete()
+  .where("id", id)
+};
+```
+
+c) A função é:
+```
+const salaryAverageByGender = async (
+  gender: string
+): Promise<any> => {
+  const result = await connection("Actor")
+  .avg("salary as average")
+  .where({gender})
+
+  console.log(result)
+ 
+};
+```
