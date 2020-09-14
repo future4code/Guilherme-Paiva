@@ -1,0 +1,21 @@
+{
+  "name": "sistema-bancario",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "createAccount": "ts-node ./src/createAccount.ts",
+    "getAllAccounts": "ts-node ./src/getAllAccounts.ts",
+    "build": "tsc && node ./build/index.js"
+  },
+  "author": "Guilherme Paiva",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "13.7.7",
+    "moment": "^2.27.0",
+    "ts-node": "^8.6.2",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.8.3"
+  }
+}
