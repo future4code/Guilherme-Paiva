@@ -3,6 +3,7 @@ import {AddressInfo} from "net";
 import express, {Request, Response} from "express";
 import {userRouter} from "./routes/userRouter";
 import {bandRouter} from "./routes/bandRouter";
+import {concertRouter} from "./routes/concertRouter";
 
 dotenv.config();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use("/user", userRouter);
 app.use("/band", bandRouter);
+app.use("/concert", concertRouter)
 
 const server = app.listen(3000, () => {
     if (server) {
@@ -21,16 +23,4 @@ const server = app.listen(3000, () => {
       console.error(`Falha ao rodar o servidor.`);
     }
   });
-
-  app.get("/teste", async (req: Request, res: Response) => {
-
-    try {
-        res.status(200).send("Oi, seu server está funcionando!");
-    } catch (error) {
-  
-        res.status(400).send("ERRO");
-  
-    }
-  });
-
   

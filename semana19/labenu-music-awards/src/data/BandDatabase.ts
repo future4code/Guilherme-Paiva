@@ -1,3 +1,4 @@
+import { Band } from "../model/Band";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class BandDatabase extends BaseDatabase {
@@ -19,13 +20,13 @@ export class BandDatabase extends BaseDatabase {
     }
   }
 
-  // public async getUserByEmail(email: string): Promise<User> {
-  //   const result = await this.getConnection()
-  //     .select("*")
-  //     .from(UserDatabase.TABLE_NAME)
-  //     .where({ email });
+  public async getInfo(id: string, name: string): Promise<Band> {
+    const result = await this.getConnection()
+    .raw(`
+          SELECT * FROM ${BandDatabase.TABLE_NAME}
+          WHERE ID = "${id}" or NAME = "${name}"
+    `)
 
-  //   return User.toUserModel(result[0]);
-  // }
-
+    return result[0][0]
+  }
 }

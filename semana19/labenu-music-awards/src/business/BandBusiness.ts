@@ -1,16 +1,20 @@
-import { UserInputDTO, LoginInputDTO, UserRole } from "../model/User";
-import { UserDatabase } from "../data/UserDatabase";
 import { IdGenerator } from "../services/IdGenerator";
-import { HashManager } from "../services/HashManager";
 import { Authenticator } from "../services/Authenticator";
 import { BandInputDTO } from "../model/Band";
 import { BandDatabase } from "../data/BandDatabase";
 
 export class BandBusiness {
 
-    async createBand(band: BandInputDTO) {
+    async createBand(band: BandInputDTO, token: string) {
         if (!band.name || !band.genre || !band.responsible){
           throw new Error("Por favor informe todos os dados")
+        }
+
+        const authenticator = new Authenticator()
+        const authData = authenticator.getData(token)
+
+        if(authData.role !== "ADMIN"){
+          throw new Error ("Somente ADMINS podem adicionar novas bandas.")
         }
         
         const idGenerator = new IdGenerator();
@@ -20,21 +24,17 @@ export class BandBusiness {
         await bandDatabase.createBand(id, band.name, band.genre, band.responsible);
     }
 
-    // async getUserByEmail(user: LoginInputDTO) {
+    async getInfo(token: string, id: string, name: string) {
+      const authenticator = new Authenticator()
+      authenticator.getData(token)
 
-    //     const userDatabase = new UserDatabase();
-    //     const userFromDB = await userDatabase.getUserByEmail(user.email);
+      if (!id && !name){
+        throw new Error("Por favor informe id ou nome da banda que deseja buscar")
+      }
+      
+      const bandDatabase = new BandDatabase()
+      const info = await bandDatabase.getInfo(id, name)
 
-    //     const hashManager = new HashManager();
-    //     const hashCompare = await hashManager.compare(user.password, userFromDB.getPassword());
-
-    //     const authenticator = new Authenticator();
-    //     const accessToken = authenticator.generateToken({ id: userFromDB.getId(), role: userFromDB.getRole() });
-
-    //     if (!hashCompare) {
-    //         throw new Error("Invalid Password!");
-    //     }
-
-    //     return accessToken;
-    // }
+      return info
+    }
 }

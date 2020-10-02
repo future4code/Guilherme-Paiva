@@ -39,8 +39,8 @@ export class Band{
   }
 
   static toBandModel(band: any): Band {
-      return new Band(band.id, band.name, band.genre, band.responsible,);
-    }
+      return new Band(band.id, band.name, band.genre, band.responsible);
+  }
 }
 
 export interface BandInputDTO{
